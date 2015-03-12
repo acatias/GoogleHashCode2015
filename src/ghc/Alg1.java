@@ -7,6 +7,12 @@ public class Alg1 {
 	public static int poolID;
 	public static int line;
 	
+	public static int[][] POOLMAT = new int[GoogleHashCode.P][GoogleHashCode.R];
+	
+	public static int[] CAPPOOL = new int[GoogleHashCode.P];
+	
+	public static int[] LASTROWMAX = new int[GoogleHashCode.P];
+	
 	static public void placeServers() {
 		
 		poolID = 0;
@@ -37,6 +43,16 @@ public class Alg1 {
 					s.row = line;
 					s.slot = j;
 					s.pool = poolID % GoogleHashCode.P;
+					
+					POOLMAT[s.pool][s.row] += s.capacity;
+					
+					CAPPOOL[s.pool] += s.capacity;
+					
+					if (LASTROWMAX[s.pool] < POOLMAT[s.pool][s.row]) {
+						
+						LASTROWMAX[s.pool] = POOLMAT[s.pool][s.row];
+					}
+					
 					poolID++;
 					line++;
 					line %= GoogleHashCode.R;
