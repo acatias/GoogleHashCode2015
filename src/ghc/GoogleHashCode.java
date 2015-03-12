@@ -58,6 +58,8 @@ public class GoogleHashCode {
 	
 	public static Server[] SERVERS;
 	
+	public static ArrayList<Server> servers;
+	
 	public static void readFromFile(String fileName) {
 
 		try {
@@ -138,7 +140,7 @@ public class GoogleHashCode {
 				SERVERS[i] = new Server(i, -1, -1, -1, cs, ss);
 			}
 			
-			ArrayList<Server> servers = new ArrayList<Server>();
+			servers = new ArrayList<Server>();
 			for (int i =0; i<M; i++) {
 				servers.add(SERVERS[i]);
 			}
@@ -150,8 +152,7 @@ public class GoogleHashCode {
 		        }
 		    });
 			
-		    
-			System.out.println("Server 625 - Sloturi =  " + SS[624] +  " Capacity = " + CS[624]);
+		    System.out.println("Server 625 - Sloturi =  " + SS[624] +  " Capacity = " + CS[624]);
 			
 			br.close();
 			
