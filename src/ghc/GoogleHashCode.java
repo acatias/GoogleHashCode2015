@@ -113,9 +113,9 @@ public class GoogleHashCode {
 		
 	}
 	
-	public static void printMatrix() {
+	public static void printMatrix(String code) {
 		
-		System.out.println("Matrix");
+		System.out.println("Matrix " + code);
 		
 		for (int i = 0; i < R; i++) {
 			
@@ -151,7 +151,7 @@ public class GoogleHashCode {
 			
 			bw.write("" + 2015);
 			
-			printMatrix();
+			printMatrix("Test");
 
 			bw.newLine();			
 			
