@@ -8,6 +8,31 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.StringTokenizer;
 
+class Server {
+	
+	public int row;
+	public int slot;
+	public int pool;
+	
+	public int capacity;
+	public int noslots;
+	
+	public double power;
+	
+	Server(int row, int slot, int pool, int capacity, int noslots) {
+		
+		this.row = row;
+		this.slot = slot;
+		this.pool = pool;
+		
+		this.capacity = capacity;
+		this.noslots = noslots;
+		
+		this.power = ((double) capacity) / noslots;
+	}
+	
+}
+
 public class GoogleHashCode {
 
 	public static int R;
@@ -22,9 +47,11 @@ public class GoogleHashCode {
 	
 	public static int[][] RS; // row-slot matrix : -2 available, -1 unavailable
 	
-	public static int[] Ss; // slots per server
+	public static int[] SS; // slots per server
 	
-	public static int[] Cs; // capacity per server
+	public static int[] CS; // capacity per server
+	
+	public static Server[] SERVERS;
 	
 	public static void readFromFile(String fileName) {
 
@@ -83,9 +110,11 @@ public class GoogleHashCode {
 			
 			System.out.println("RS[10][23] = " + RS[10][23]);
 			
-			Ss = new int[M];
+			SS = new int[M];
 			
-			Cs = new int[M];
+			CS = new int[M];
+			
+			SERVERS = new Server[M];
 			
 			for (int i = 0; i < M; i++) {
 				
@@ -97,12 +126,14 @@ public class GoogleHashCode {
 				
 				int cs = Integer.parseInt(st.nextToken());
 				
-				Ss[i] = ss;
+				SS[i] = ss;
 				
-				Cs[i] = cs;
+				CS[i] = cs;
+				
+				SERVERS[i] = new Server(-1, -1, -1, cs, ss);
 			}
 			
-			System.out.println("Server 625 - Sloturi =  " + Ss[624] +  " Capacity = " + Cs[624]);
+			System.out.println("Server 625 - Sloturi =  " + SS[624] +  " Capacity = " + CS[624]);
 			
 			br.close();
 			
