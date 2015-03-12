@@ -150,7 +150,7 @@ public class GoogleHashCode {
 		    Collections.sort(servers, new Comparator<Server>() {
 
 		        public int compare(Server o1, Server o2) {
-		            return (int)Math.round(o1.power - o2.power);
+		            return (int)Math.round(o2.power - o1.power);
 		        }
 		    });
 			
@@ -210,12 +210,7 @@ public class GoogleHashCode {
 			}	
 			
 			bw.close();
-			
-			PrinterHC.clearscreen();
-			PrinterHC.printMatrix(0,0);
-
-
-			
+						
 		} catch (IOException e) {
 			
 			e.printStackTrace();
