@@ -113,6 +113,28 @@ public class GoogleHashCode {
 		
 	}
 	
+	public static void printMatrix() {
+		
+		System.out.println("Matrix");
+		
+		for (int i = 0; i < R; i++) {
+			
+			for (int j = 0; j < S; j++) {
+				
+				if (RS[i][j] == -2) {
+				
+					System.out.print(".");
+					
+				} else {
+					
+					System.out.print("x");
+				}
+			}
+			
+			System.out.println();
+		}
+	}
+	
 	public static void writeToFile(String fileName) {
 		
 		try {
@@ -128,6 +150,8 @@ public class GoogleHashCode {
 			bw.write("Google Hash Code ");
 			
 			bw.write("" + 2015);
+			
+			printMatrix();
 
 			bw.newLine();			
 			
