@@ -33,7 +33,7 @@ class Server {
 		this.capacity = capacity;
 		this.noslots = noslots;
 		
-		this.power = ((double) capacity) / noslots;
+		this.power = ((double) capacity) * noslots;
 	}
 	
 }
@@ -151,6 +151,7 @@ public class GoogleHashCode {
 
 		        public int compare(Server o1, Server o2) {
 		            return (int)Math.round(o2.power - o1.power);
+//		            return (int)Math.round(o1.noslots - o2.noslots);
 		        }
 		    });
 			
