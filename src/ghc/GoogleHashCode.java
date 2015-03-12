@@ -222,6 +222,8 @@ public class GoogleHashCode {
 		
 		readFromFile("dc.in");
 		
+		Alg1.placeServers();
+		
 		writeToFile("WRITEME.txt");
 		
 		long endTime = System.nanoTime();
