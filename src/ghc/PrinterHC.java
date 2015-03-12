@@ -14,6 +14,7 @@ public class PrinterHC {
 
 	public static void printMatrix(int x, int y) {
 		gotoxy(x,y);
+		System.out.println();
 		for (int i = 0; i < GoogleHashCode.R; i++) {
 			
 			for (int j = 0; j < GoogleHashCode.S; j++) {
