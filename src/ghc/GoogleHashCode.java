@@ -151,7 +151,8 @@ public class GoogleHashCode {
 			
 			bw.write("" + 2015);
 			
-			printMatrix("Test");
+			PrinterHC.clearscreen();
+			PrinterHC.printMatrix(0,0);
 
 			bw.newLine();			
 			
