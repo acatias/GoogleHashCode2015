@@ -18,9 +18,11 @@ class Server {
 	public int noslots;
 	
 	public double power;
+	public int no;
 	
-	Server(int row, int slot, int pool, int capacity, int noslots) {
+	Server(int no, int row, int slot, int pool, int capacity, int noslots) {
 		
+		this.no = no;
 		this.row = row;
 		this.slot = slot;
 		this.pool = pool;
@@ -130,7 +132,7 @@ public class GoogleHashCode {
 				
 				CS[i] = cs;
 				
-				SERVERS[i] = new Server(-1, -1, -1, cs, ss);
+				SERVERS[i] = new Server(i, -1, -1, -1, cs, ss);
 			}
 			
 			System.out.println("Server 625 - Sloturi =  " + SS[624] +  " Capacity = " + CS[624]);
