@@ -6,9 +6,12 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.StringTokenizer;
 
 public class GoogleHashCode {
 
+	public static int R, S, U, P, M;
+	
 	public static void readFromFile(String fileName) {
 
 		try {
@@ -17,19 +20,35 @@ public class GoogleHashCode {
 			
 			String line = br.readLine();
 			
-			while (line != null) {
-				
-				System.out.println("String: " + line);
-				
-				if (line.charAt(0) == '#') {
-					
-					int i = Integer.parseInt(line.substring(16));
-					
-					System.out.println("Integer: " + i);
-				}
-				
-				line = br.readLine();
-			}
+			StringTokenizer st = new StringTokenizer(line);
+			
+			R = Integer.parseInt(st.nextToken());
+			
+			System.out.println("R = " + R);
+			
+			S = Integer.parseInt(st.nextToken());
+			
+			System.out.println("S = " + S);
+			
+			U = Integer.parseInt(st.nextToken());
+			
+			System.out.println("U = " + U);
+			
+			P = Integer.parseInt(st.nextToken());
+			
+			System.out.println("P = " + P);
+			
+			M = Integer.parseInt(st.nextToken());
+			
+			System.out.println("M = " + M);
+			
+			
+			
+//			while (line != null) {
+//				
+//				System.out.println("String: " + line);
+//				
+//			}
 
 			br.close();
 			
@@ -72,7 +91,7 @@ public class GoogleHashCode {
 		
 		System.out.println("Hello World!");
 		
-		readFromFile("README.txt");
+		readFromFile("dc.in");
 		
 		writeToFile("WRITEME.txt");
 		
