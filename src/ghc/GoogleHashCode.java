@@ -229,9 +229,11 @@ public class GoogleHashCode {
 		System.out.println("Hello World!");
 		
 		readFromFile("dc.in");
-		
+
+		Alg1.placeServers();
+
 		writeToFile("dc.out");
-		
+
 		long endTime = System.nanoTime();
 		
 		System.out.println("Running time 2: " + ((endTime - startTime) / 1000000.0) + " seconds");
