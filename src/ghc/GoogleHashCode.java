@@ -34,7 +34,9 @@ class Server {
 		this.noslots = noslots;
 		
 //		this.power = ((double) capacity) / ((double)noslots*1.5);
-		this.power = ((double) capacity) * ((double)noslots);
+//		this.power = ((double) capacity) * ((double)noslots);
+		
+		this.power = capacity;
 	}
 	
 }
