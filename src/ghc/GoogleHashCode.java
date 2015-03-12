@@ -12,6 +12,12 @@ public class GoogleHashCode {
 
 	public static int R, S, U, P, M;
 	
+	public static int[][] RS; // row-slot matrix : -2 available, -1 unavailable
+	
+	public static int[] Ss; // slots per server
+	
+	public static int[] Cs; // capacity per server
+	
 	public static void readFromFile(String fileName) {
 
 		try {
@@ -42,14 +48,54 @@ public class GoogleHashCode {
 			
 			System.out.println("M = " + M);
 			
+			RS = new int[R][S];
 			
+			for (int i = 0; i < R; i++) {
+				
+				for (int j = 0; j < S; j++) {
+					
+					RS[i][j] = -2;
+				}
+			}
 			
-//			while (line != null) {
-//				
-//				System.out.println("String: " + line);
-//				
-//			}
-
+			for (int i = 0; i < U; i++) {
+				
+				line = br.readLine();
+				
+				st = new StringTokenizer(line);
+				
+				int r = Integer.parseInt(st.nextToken());
+				
+				int s = Integer.parseInt(st.nextToken());
+				
+				RS[r][s] = -1; 
+			}
+			
+			System.out.println("RS[0][0] = " + RS[0][0]);
+			
+			System.out.println("RS[10][23] = " + RS[10][23]);
+			
+			Ss = new int[M];
+			
+			Cs = new int[M];
+			
+			for (int i = 0; i < M; i++) {
+				
+				line = br.readLine();
+				
+				st = new StringTokenizer(line);
+				
+				int ss = Integer.parseInt(st.nextToken());
+				
+				int cs = Integer.parseInt(st.nextToken());
+				
+				Ss[i] = ss;
+				
+				Cs[i] = cs;
+			}
+			
+			System.out.println("Server 625 - Sloturi =  " + Ss[624] +  " Capacity = " + Cs[624]);
+			
 			br.close();
 			
 		} catch (IOException e) {
