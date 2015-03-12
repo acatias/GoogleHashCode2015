@@ -140,6 +140,8 @@ public class GoogleHashCode {
 				SERVERS[i] = new Server(i, -1, -1, -1, cs, ss);
 			}
 			
+			br.close();
+			
 			servers = new ArrayList<Server>();
 			for (int i =0; i<M; i++) {
 				servers.add(SERVERS[i]);
@@ -154,7 +156,7 @@ public class GoogleHashCode {
 			
 		    System.out.println("Server 625 - Sloturi =  " + SS[624] +  " Capacity = " + CS[624]);
 			
-			br.close();
+
 			
 		} catch (IOException e) {
 			
@@ -191,22 +193,28 @@ public class GoogleHashCode {
 			
 			BufferedWriter bw = new BufferedWriter(new FileWriter(new File(fileName)));
 			
-			bw.write("# GoogleHashCode");
-			
-			bw.write("" + 2015);
+			for (int i = 0; i < M; i++) {
+				
+				if (SERVERS[i].row == -1) {
+					
+					bw.write("x");
 
-			bw.newLine();
+					bw.newLine();
+					
+				} else {
+					
+					bw.write(SERVERS[i].row + " " + SERVERS[i].slot + " " + SERVERS[i].pool);
+					
+					bw.newLine();
+				}
+			}	
 			
-			bw.write("Google Hash Code ");
-			
-			bw.write("" + 2015);
+			bw.close();
 			
 			PrinterHC.clearscreen();
 			PrinterHC.printMatrix(0,0);
 
-			bw.newLine();			
-			
-			bw.close();
+
 			
 		} catch (IOException e) {
 			
@@ -222,7 +230,7 @@ public class GoogleHashCode {
 		
 		readFromFile("dc.in");
 		
-		writeToFile("WRITEME.txt");
+		writeToFile("dc.out");
 		
 		long endTime = System.nanoTime();
 		
