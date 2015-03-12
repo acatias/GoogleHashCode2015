@@ -6,6 +6,9 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.StringTokenizer;
 
 class Server {
@@ -135,6 +138,19 @@ public class GoogleHashCode {
 				SERVERS[i] = new Server(i, -1, -1, -1, cs, ss);
 			}
 			
+			ArrayList<Server> servers = new ArrayList<Server>();
+			for (int i =0; i<M; i++) {
+				servers.add(SERVERS[i]);
+			}
+
+		    Collections.sort(servers, new Comparator<Server>() {
+
+		        public int compare(Server o1, Server o2) {
+		            return (int)Math.round(o1.power - o2.power);
+		        }
+		    });
+			
+		    
 			System.out.println("Server 625 - Sloturi =  " + SS[624] +  " Capacity = " + CS[624]);
 			
 			br.close();
