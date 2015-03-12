@@ -13,6 +13,8 @@ public class Alg1 {
 	
 	public static int[] LASTROWMAX = new int[GoogleHashCode.P];
 	
+	public static int SCORE;
+	
 	static public void placeServers() {
 		
 		poolID = 0;
@@ -23,6 +25,23 @@ public class Alg1 {
 			placeServer(s);
 			PrinterHC.clearscreen();
 			PrinterHC.printMatrix(0, 0);
+			
+			SCORE = 10000000;
+			
+			for (int p = 0; p < GoogleHashCode.P; p++) {
+				
+				int score = CAPPOOL[p] - LASTROWMAX[p];
+				
+				if (score < SCORE) {
+					
+					SCORE = score;
+				}
+				
+				System.out.print(score + " ");
+			}
+			
+			System.out.println("score - " + SCORE);
+			
 			try {
 				Thread.sleep(10);
 			} catch (InterruptedException e) {
