@@ -7,25 +7,42 @@ public class Alg1 {
 	public static int poolID;
 	public static int line;
 	
-	public static int[][] POOLMAT = new int[GoogleHashCode.P][GoogleHashCode.R];
+	public static int[][] POOLMAT;
 	
-	public static int[] CAPPOOL = new int[GoogleHashCode.P];
+	public static int[] CAPPOOL;
 	
-	public static int[] LASTROWMAX = new int[GoogleHashCode.P];
+	public static int[] LASTROWMAX;
 	
 	public static int SCORE;
 	
-	static public void placeServers() {
-		
-		poolID = 0;
+	public static int skipConst = GoogleHashCode.M / 10;
+	
+	public static int skip;
+	
+	public static boolean direction = false;
+	
+	static public void placeServers(boolean reinit) {
+		if (reinit) {
+			POOLMAT = new int[GoogleHashCode.P][GoogleHashCode.R];
+			CAPPOOL = new int[GoogleHashCode.P];
+			LASTROWMAX = new int[GoogleHashCode.P];
+			poolID = 0;
+			line = 0;
+		}
 		Iterator<Server> i = GoogleHashCode.servers.iterator();
-		line = 0;
+//		int skipNow = (int)Math.round(Math.random()*skip);
+		int skipNow = skip;
 		while (i.hasNext()) {
 			Server s = i.next();
-			placeServer(s);
-			PrinterHC.clearscreen();
-			PrinterHC.printMatrix(0, 0);
-			
+			if (s.row != -1) continue;
+			if (skipNow-- > 0) continue;
+			if (placeServer(s)) {
+//				i = GoogleHashCode.servers.iterator();
+//				skipNow = (int)Math.round(Math.random()*skip);
+			}
+//			PrinterHC.clearscreen();
+//			PrinterHC.printMatrix(0, 0);
+//			
 			SCORE = 10000000;
 			
 			for (int p = 0; p < GoogleHashCode.P; p++) {
@@ -40,14 +57,14 @@ public class Alg1 {
 				System.out.print(score + " ");
 			}
 			
-			System.out.println("score - " + SCORE);
+			System.out.println("score - " + SCORE + " MAXScore - " + GoogleHashCode.MAXSCORE + " SKIP - " + GoogleHashCode.SKIP);
 			
-			try {
-				Thread.sleep(10);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+//			try {
+//				Thread.sleep(10);
+//			} catch (InterruptedException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
 		}
 		
 	}

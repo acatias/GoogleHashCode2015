@@ -33,7 +33,8 @@ class Server {
 		this.capacity = capacity;
 		this.noslots = noslots;
 		
-		this.power = ((double) capacity) * noslots;
+//		this.power = ((double) capacity) / ((double)noslots*1.5);
+		this.power = ((double) capacity) * ((double)noslots);
 	}
 	
 }
@@ -59,6 +60,9 @@ public class GoogleHashCode {
 	public static Server[] SERVERS;
 	
 	public static ArrayList<Server> servers;
+	
+	public static int MAXSCORE = 0;
+	public static int SKIP = 0;
 	
 	public static void readFromFile(String fileName) {
 
@@ -225,10 +229,30 @@ public class GoogleHashCode {
 		System.out.println("Hello World!");
 		
 		readFromFile("dc.in");
+		
+		for (int i = 0; i < M/50; i++) {
+			Alg1.skip = i;
+			readFromFile("dc.in");
+	
+			Alg1.placeServers(true);
+			Alg1.placeServers(false);
+			
+			if (MAXSCORE < Alg1.SCORE) {
+				MAXSCORE=Alg1.SCORE;
+				SKIP = i;
+				writeToFile("dc.out");
+			}
+		}
+		System.out.println("Best = " + MAXSCORE + ". Skip = " + SKIP);
 
-		Alg1.placeServers();
-
-		writeToFile("dc.out");
+//		Alg1.skip = SKIP;
+//		readFromFile("dc.in");
+//
+//		Alg1.placeServers(true);
+//		Alg1.placeServers(false);
+//		
+//
+//		writeToFile("dc.out");
 
 		long endTime = System.nanoTime();
 		
