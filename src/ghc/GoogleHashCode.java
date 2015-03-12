@@ -10,7 +10,15 @@ import java.util.StringTokenizer;
 
 public class GoogleHashCode {
 
-	public static int R, S, U, P, M;
+	public static int R;
+	
+	public static int S;
+	
+	public static int U;
+	
+	public static int P;
+	
+	public static int M;
 	
 	public static int[][] RS; // row-slot matrix : -2 available, -1 unavailable
 	
