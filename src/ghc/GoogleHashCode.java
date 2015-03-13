@@ -235,7 +235,7 @@ public class GoogleHashCode {
 		
 		readFromFile("dc.in");
 		
-		for (int i = 0; i < 10; i++) {
+		for (int i = 0; i < 1; i++) {
 			Alg1.skip = i;
 			readFromFile("dc.in");
 	
@@ -248,6 +248,23 @@ public class GoogleHashCode {
 				writeToFile("dc.out");
 			}
 		}
+		
+		for (int i = 0; i < M; i++) {
+			
+			if (SERVERS[i].pool == 0) {
+				
+				System.out.println("Server 0 " + SERVERS[i].no + " capacity " + SERVERS[i].capacity + " row " + SERVERS[i].row);
+			}
+		}
+		
+		for (int i = 0; i < M; i++) {
+			
+			if (SERVERS[i].pool == 44) {
+				
+				System.out.println("Server 44 " + SERVERS[i].no + " capacity " + SERVERS[i].capacity + " row " + SERVERS[i].row);
+			}
+		}
+		
 		System.out.println("Best = " + MAXSCORE + ". Skip = " + SKIP);
 
 //		Alg1.skip = SKIP;
