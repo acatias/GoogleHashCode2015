@@ -33,10 +33,13 @@ class Server {
 		this.capacity = capacity;
 		this.noslots = noslots;
 		
-//		this.power = ((double) capacity) / ((double)noslots*1.5);
+//		this.power = ((double) capacity) / ((double)noslots);
 //		this.power = ((double) capacity) * ((double)noslots);
 		
-		this.power = capacity;
+//		this.power = capacity;
+
+		this.power = ((double) capacity);
+	
 	}
 	
 }
@@ -232,7 +235,7 @@ public class GoogleHashCode {
 		
 		readFromFile("dc.in");
 		
-		for (int i = 0; i < M/50; i++) {
+		for (int i = 0; i < 10; i++) {
 			Alg1.skip = i;
 			readFromFile("dc.in");
 	
